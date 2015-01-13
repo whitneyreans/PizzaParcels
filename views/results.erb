@@ -1,0 +1,15 @@
+<h2>Your Pizza Parcel<sup>&reg;</sup> shipping estimate</h2>
+
+<p>Parcel volume: <%= @parcel.volume() %></p>
+<p>Parcel weight: <%= @weight %></p>
+<p>Shipping cost:
+<% if @parcel.cost_to_ship() == 1 %>
+One Slice of Pizza
+<% elsif @parcel.cost_to_ship() == 2 %>
+One Whole Pizza
+<% elsif @parcel.cost_to_ship() == 3 %>
+All of the Pizza
+<% else %>
+Something went wrong!
+<% end %>
+</p>

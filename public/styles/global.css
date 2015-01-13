@@ -1,0 +1,272 @@
+/*
+* --------------------------------------------------------------------------
+* Foundation
+* --------------------------------------------------------------------------
+*/
+*::before, *::after, * {
+  /*
+  Apply a more natural box layout model to all elements. This can be
+  overridden by setting a specific element's `box-sizing:` to `content-box`.
+  */
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*
+  Establish custom easing function.
+  */
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html, body {
+  margin: 0;
+}
+
+html {
+  /*
+  Prevent fonts from automatically zooming in mobile browsers. A value of
+  `100%` still allows for pinch-zoom input. (`none` disables pinch-zoom.)
+  */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  /*
+  Basic typography sets the foundation for vertical rhythm and relative size
+  between elements.
+  */
+  font-size: 16px;
+  line-height: 1.5em;
+  vertical-align: baseline;
+  /*
+  Ligatures and kerning are ALL over the place.
+  */
+  text-rendering: optimizeLegibility;
+  -webkit-font-variant-ligatures: common-ligatures discretionary-ligatures;
+  -moz-font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  -moz-font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  -webkit-font-kerning: normal;
+  -moz-font-kerning: normal;
+  font-kerning: normal;
+  /*
+  Chrome and Opera do not support the `auto` value for hyphens:. Chrome does
+  support `none`, however.
+  http://caniuse.com/#feat=css-hyphens
+  */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  /*
+  Render fonts consistently. Without these, fonts flicker in Safari and links
+  get bolder on :hover in Chrome. Need to explore this issue more. Mozilla
+  looks best left alone but shooting for consistency for the time being; this
+  might eventually be a Webkit-specific "fix" if I decide it's okay for
+  Mozilla to render differently.
+  */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+button,
+input,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+  border: 0;
+  outline: 0;
+}
+
+
+
+
+
+/*
+* --------------------------------------------------------------------------
+* Global
+* --------------------------------------------------------------------------
+*/
+html,
+body,
+header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex
+}
+
+html {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1rem;
+  height: 100%;
+  background: #FFE7BA;
+  color: #222;
+  font-family: "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, FreeSans, sans-serif;
+  font-weight: 500;
+}
+
+body {
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  margin: auto;
+  padding: 0 1rem;
+  width: 66%;
+  min-width: 16rem;
+  max-width: 64rem;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+header {
+  -webkit-flex: 1 100%;
+  -ms-flex: 1;
+  flex: 1 100%;
+
+  border-bottom: 1px solid #d0dad8;
+
+  text-align: center;
+}
+
+h1 {
+  width: 100%;
+
+  font-family: Oswald, sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+h1::before {
+  display: inline-block;
+  content: "";
+  width: 65px;
+  height: 65px;
+  background: url("../images/pizza.png");
+  background-size: cover;
+  }
+
+h2 {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+main {
+  -webkit-flex: 1 100%;
+  -ms-flex: 1;
+  flex: 1 100%;
+
+  margin: 1rem auto;
+}
+
+input {
+  padding: .25rem .5rem;
+
+  border-bottom: 1px solid #d0dad8;
+
+  -webkit-transition-duration: .1s;
+  transition-duration: .1s
+}
+
+textarea {
+  display: block;
+
+  width: 100%;
+  min-height: 6rem;
+
+  margin: 1.5rem auto;
+  padding: .25rem .5rem;
+
+  border: 1px solid #d0dad8;
+}
+
+  input:hover,
+  input:active,
+  input:focus,
+  textarea:hover,
+  textarea:active,
+  textarea:focus {
+    border-bottom-color: #0e745c;
+
+    box-shadow: 0 2px 1px -1px #d0dad8;
+  }
+
+button {
+  width: 49%;
+
+  margin-top: 1.5rem;
+  padding: .5rem 1rem;
+
+  color: #888;
+  font-family: Oswald, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  background-repeat: no-repeat;
+
+  -webkit-transition-duration: .1s;
+  transition-duration: .1s
+}
+  [type="submit"] {
+    background: #FFCC99;
+    background-image: -webkit-linear-gradient(left, #EF8128 0%, #EF8128 50%, transparent 50%, transparent 100%);
+    background-image: linear-gradient(to right, #EF8128 0%, #EF8128 50%, transparent 50%, transparent 100%);
+    background-size: 200% 100%;
+    background-position: 100%;
+  }
+  [type="reset"] {
+    float: right;
+
+    background: #ECC3BF;
+    background-image: -webkit-linear-gradient(left, #CD3700 0%, #CD3700 50%, transparent 50%, transparent 100%);
+    background-image: linear-gradient(to right, #CD3700 0%, #CD3700 50%, transparent 50%, transparent 100%);
+    background-size: 200% 100%;
+    background-position: 100%;
+  }
+  button:hover,
+  button:active,
+  button:focus {
+    color: #fff;
+    background-position: 0%;
+  }
+
+[href="/"] {
+  padding: .5rem 1rem;
+
+  background: #ddd;
+  background-image: -webkit-linear-gradient(left, #888 0%, #888 50%, transparent 50%, transparent 100%);
+  background-image: linear-gradient(to right, #888 0%, #888 50%, transparent 50%, transparent 100%);
+  background-size: 200% 100%;
+  background-position: 100%;
+
+  color: #888;
+  font-family: Oswald, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  outline: 0;
+
+  -webkit-transition-duration: .1s;
+  transition-duration: .1s
+}
+  [href="/"]::before {
+    content: "\261c\0020\0020";
+    font-size: 1.5em;
+    vertical-align: text-bottom;
+  }
+  [href="/"]:hover,
+  [href="/"]:active,
+  [href="/"]:focus {
+    color: #fff;
+    background-position: 0%;
+  }
